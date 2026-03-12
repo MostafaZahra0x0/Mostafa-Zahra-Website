@@ -201,6 +201,7 @@ button {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     transition: background 0.4s var(--ease-out-quart), border-color 0.4s var(--ease-out-quart);
+    border-radius: 0px 0px 20px 20px;
 }
 
 .navbar.scrolled {
