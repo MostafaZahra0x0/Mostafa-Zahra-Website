@@ -888,6 +888,7 @@ section {
     padding: 1.5rem;
     background: var(--bg-secondary);
     border: 1px solid var(--border);
+    border-radius: 16px;
     transition: all 0.3s ease;
 }
 
@@ -932,6 +933,7 @@ section {
     background: var(--bg-secondary);
     border: 1px solid var(--border);
     padding: 2.5rem;
+    border-radius: 16px;
     transition: all 0.4s var(--ease-out-quart);
 }
 
@@ -962,6 +964,7 @@ section {
     padding: 1rem;
     background: var(--bg-primary);
     border: 1px solid var(--border);
+    border-radius: 8px;
     color: var(--text-primary);
     font-family: inherit;
     font-size: 0.95rem;
