@@ -757,6 +757,7 @@ section {
     position: relative;
     overflow: hidden;
     transition: all 0.5s var(--ease-out-expo);
+    border-radius: 20px;
 }
 
 .project-card::before {
