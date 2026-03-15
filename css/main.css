@@ -1120,6 +1120,22 @@ section {
     resize: vertical;
 }
 
+.contact-form input.invalid,
+.contact-form textarea.invalid {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.form-status {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    min-height: 1.25em;
+}
+
+.form-status.form-status-error {
+    color: var(--accent);
+}
+
 /* Footer */
 .footer {
     background: var(--bg-secondary);

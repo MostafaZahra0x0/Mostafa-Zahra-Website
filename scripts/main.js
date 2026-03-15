@@ -106,14 +106,43 @@ function initFormHandling() {
     
     if (!contactForm) return;
     
+    const nameInput = contactForm.querySelector('#name');
+    const emailInput = contactForm.querySelector('#email');
+    const messageInput = contactForm.querySelector('#message');
+    const statusEl = contactForm.querySelector('.form-status');
+
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const name = contactForm.querySelector('#name')?.value.trim() || '';
-        const email = contactForm.querySelector('#email')?.value.trim() || '';
-        const message = contactForm.querySelector('#message')?.value.trim() || '';
+        const name = nameInput?.value.trim() || '';
+        const email = emailInput?.value.trim() || '';
+        const message = messageInput?.value.trim() || '';
 
-        if (!name || !email || !message) {
+        function clearValidationState() {
+            [nameInput, emailInput, messageInput].forEach(el => {
+                el?.classList.remove('invalid');
+            });
+            if (statusEl) {
+                statusEl.textContent = '';
+                statusEl.classList.remove('form-status-error');
+            }
+        }
+
+        clearValidationState();
+
+        const missing = [];
+        if (!name) missing.push({ field: 'Name', el: nameInput });
+        if (!email) missing.push({ field: 'Email', el: emailInput });
+        if (!message) missing.push({ field: 'Message', el: messageInput });
+
+        if (missing.length > 0) {
+            const summary = 'Please fill in: ' + missing.map(m => m.field).join(', ');
+            if (statusEl) {
+                statusEl.textContent = summary;
+                statusEl.classList.add('form-status-error');
+            }
+            missing.forEach(({ el }) => el?.classList.add('invalid'));
+            missing[0].el?.focus();
             return;
         }
 
@@ -124,8 +153,17 @@ function initFormHandling() {
 
         const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=mostafazahra1000@gmail.com&su=${subject}&body=${body}`;
 
-        window.open(gmailUrl, '_blank');
+        const popup = window.open(gmailUrl, '_blank');
 
-        contactForm.reset();
+        if (popup) {
+            contactForm.reset();
+            if (statusEl) statusEl.textContent = '';
+        } else {
+            if (statusEl) {
+                statusEl.textContent = 'Popup blocked. Opening Gmail in this tab.';
+                statusEl.classList.add('form-status-error');
+            }
+            window.location.href = gmailUrl;
+        }
     });
 }
