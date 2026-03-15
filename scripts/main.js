@@ -108,20 +108,24 @@ function initFormHandling() {
     
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const message = contactForm.querySelector('textarea').value;
-        
-        if (name && email && message) {
-            contactForm.querySelector('.btn').innerHTML = '<i class="fas fa-check"></i> Sent!';
-            contactForm.querySelector('.btn').style.background = '#4a9962';
-            contactForm.reset();
-            
-            setTimeout(() => {
-                contactForm.querySelector('.btn').innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
-                contactForm.querySelector('.btn').style.background = '';
-            }, 3000);
+
+        const name = contactForm.querySelector('#name')?.value.trim() || '';
+        const email = contactForm.querySelector('#email')?.value.trim() || '';
+        const message = contactForm.querySelector('#message')?.value.trim() || '';
+
+        if (!name || !email || !message) {
+            return;
         }
+
+        const subject = encodeURIComponent(`New message from ${name}`);
+        const body = encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        );
+
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=mostafazahra1000@gmail.com&su=${subject}&body=${body}`;
+
+        window.open(gmailUrl, '_blank');
+
+        contactForm.reset();
     });
 }
