@@ -215,7 +215,7 @@ button {
 }
 
 .nav-brand {
-    width: 90px;
+    width: 120px;
 }
 .nav-brand span {
     font-style: italic;
@@ -228,7 +228,7 @@ button {
 }
 
 .nav-links a {
-    font-size: 0.9rem;
+    font-size: 20px;
     font-weight: 400;
     color: var(--text-secondary);
     letter-spacing: 0.02em;
@@ -438,7 +438,7 @@ button {
     overflow: hidden;
     border-radius: 2px;
     border-radius: 20px;
-    margin-top: 30px;
+    margin-top: 55px;
 }
 
 .hero-image-wrapper::before {
