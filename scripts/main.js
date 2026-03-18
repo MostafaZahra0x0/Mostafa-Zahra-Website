@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initScrollReveal();
     initSmoothScroll();
-    initFormHandling();
 });
 
 function initThemeToggle() {
@@ -98,30 +97,5 @@ function initSmoothScroll() {
                 });
             }
         });
-    });
-}
-
-function initFormHandling() {
-    const contactForm = document.querySelector('.contact-form');
-    
-    if (!contactForm) return;
-    
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const message = contactForm.querySelector('textarea').value;
-        
-        if (name && email && message) {
-            contactForm.querySelector('.btn').innerHTML = '<i class="fas fa-check"></i> Sent!';
-            contactForm.querySelector('.btn').style.background = '#4a9962';
-            contactForm.reset();
-            
-            setTimeout(() => {
-                contactForm.querySelector('.btn').innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
-                contactForm.querySelector('.btn').style.background = '';
-            }, 3000);
-        }
     });
 }
