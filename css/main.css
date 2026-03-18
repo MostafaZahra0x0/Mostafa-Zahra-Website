@@ -471,7 +471,7 @@ button {
 
 .hero-decoration {
     position: absolute;
-    bottom: -2rem;
+    bottom: -6rem;
     left: -2rem;
     width: 200px;
     height: 200px;
@@ -489,6 +489,38 @@ button {
     height: 100%;
     border: 1px solid var(--border);
     transition: border-color 0.4s var(--ease-out-quart);
+}
+
+.hero-socials {
+    position: absolute;
+    bottom: -3.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease 1s forwards;
+}
+
+.social-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    transition: all 0.3s var(--ease-out-expo);
+}
+
+.social-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px var(--card-shadow);
 }
 
 .scroll-indicator {
@@ -1220,6 +1252,17 @@ section {
 
     .hero-visual {
         max-width: 300px;
+    }
+
+    .hero-socials {
+        bottom: -4rem;
+        gap: 0.75rem;
+    }
+
+    .social-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
     }
     
     .about-grid {
