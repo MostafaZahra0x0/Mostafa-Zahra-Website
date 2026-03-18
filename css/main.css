@@ -438,7 +438,7 @@ button {
     overflow: hidden;
     border-radius: 2px;
     border-radius: 20px;
-    margin-top: 25px;
+    margin-top: 30px;
 }
 
 .hero-image-wrapper::before {
