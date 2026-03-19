@@ -22,63 +22,130 @@
     font-family: 'Momken';
     src: url('assets/fonts/KoMomken-Regular.otf') format('opentype');
 }
-
-
+/* ============================================================
+   DESIGN TOKENS — MUSTAFA ZAHRA PORTFOLIO
+   Theme-override resistant | Cross-environment consistent
+   ============================================================ */
+ 
+/* ── Shared tokens (never change between themes) ── */
 :root {
-    --bg-primary: #352404;
-    --bg-secondary: #1b1b1a;
-    --bg-tertiary: #1c1917;
-    --text-primary: #f0ebe3;
-    --text-secondary: #a69f94;
-    --text-muted: #6b6560;
-    --accent: #c9a962;
-    --accent-dim: #8a7642;
-    --accent-glow: rgba(201, 169, 98, 0.15);
-    --border: rgba(201, 169, 98, 0.12);
-    --border-hover: rgba(201, 169, 98, 0.3);
-    --overlay-bg: rgba(10, 9, 8, 0.9);
-    --card-shadow: rgba(0, 0, 0, 0.3);
-    
+    /* Typography */
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'DM Sans', system-ui, sans-serif;
-    
-    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-    --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+ 
+    /* Animation curves */
+    --ease-out-expo:   cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart:  cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-elastic:    cubic-bezier(0.68, -0.55, 0.265, 1.55);
+ 
+    /* Timing */
+    --transition-fast:   0.2s;
+    --transition-base:   0.4s;
+    --transition-slow:   0.8s;
+ 
+    /* Spacing scale */
+    --space-xs:   0.25rem;
+    --space-sm:   0.5rem;
+    --space-md:   1rem;
+    --space-lg:   2rem;
+    --space-xl:   4rem;
+ 
+    /* Radius scale */
+    --radius-sm:  8px;
+    --radius-md:  12px;
+    --radius-lg:  20px;
+    --radius-full: 9999px;
+ 
+    /* Accent (gold — same in both themes, only opacity differs) */
+    --accent-raw: 201, 169, 98;       /* r g b — reuse with rgba() */
+    --accent:     #c9a962;
+    --accent-dim: #8a7642;
+ 
+    /* Force browser to use our exact colors — defeats Dark Reader & friends */
+    color-scheme: only light;
+    forced-color-adjust: none;
+    -webkit-forced-color-adjust: none;
 }
-
-[data-theme="dark"] {
-    --bg-primary: #352404;
+ 
+/* ── Dark theme (default) ── */
+:root,
+:root[data-theme="dark"] {
+    /* Backgrounds */
+    --bg-primary:   #5f5541a8;
     --bg-secondary: #1b1b1a;
-    --bg-tertiary: #1c1917;
-    --text-primary: #f0ebe3;
+    --bg-tertiary:  #1c1917;
+ 
+    /* Text */
+    --text-primary:   #f0ebe3;
     --text-secondary: #a69f94;
-    --text-muted: #6b6560;
-    --accent: #c9a962;
-    --accent-dim: #8a7642;
-    --accent-glow: rgba(201, 169, 98, 0.15);
-    --border: rgba(201, 169, 98, 0.12);
-    --border-hover: rgba(201, 169, 98, 0.3);
-    --overlay-bg: rgba(10, 9, 8, 0.9);
-    --card-shadow: rgba(0, 0, 0, 0.3);
+    --text-muted:     #6b6560;
+ 
+    /* Accent derivatives */
+    --accent-glow:   rgba(var(--accent-raw), 0.15);
+    --accent-subtle: rgba(var(--accent-raw), 0.08);
+ 
+    /* Borders */
+    --border:       rgba(var(--accent-raw), 0.12);
+    --border-hover: rgba(var(--accent-raw), 0.30);
+    --border-focus: rgba(var(--accent-raw), 0.55);
+ 
+    /* Surfaces */
+    --overlay-bg:  rgba(10, 9, 8, 0.90);
+    --card-shadow: rgba(0, 0, 0, 0.30);
+    --glass-bg:    rgba(28, 25, 23, 0.70);
 }
-
-[data-theme="light"] {
-    --bg-primary: #e2d6bec9;
+ 
+/* ── Light theme ── */
+:root[data-theme="light"] {
+    /* Backgrounds */
+    --bg-primary:   #ffedc8cb;          /* fixed: was invalid hex+alpha */
     --bg-secondary: #96815f;
-    --bg-tertiary: #e2d6be;
-    --text-primary: #1a1815;
+    --bg-tertiary:  #ede4d0;
+ 
+    /* Text */
+    --text-primary:   #1a1815;
     --text-secondary: #5a554d;
-    --text-muted: #6d6658;
-    --accent: #a68b4b;
+    --text-muted:     #6d6658;
+ 
+    /* Accent derivatives */
+    --accent-raw: 166, 139, 75;       /* slightly warmer gold for light */
+    --accent:     #a68b4b;
     --accent-dim: #8a7642;
-    --accent-glow: rgba(166, 139, 75, 0.12);
-    --border: rgba(166, 139, 75, 0.2);
-    --border-hover: rgba(166, 139, 75, 0.4);
-    --overlay-bg: rgba(245, 243, 239, 0.92);
+    --accent-glow:   rgba(var(--accent-raw), 0.12);
+    --accent-subtle: rgba(var(--accent-raw), 0.06);
+ 
+    /* Borders */
+    --border:       rgba(var(--accent-raw), 0.20);
+    --border-hover: rgba(var(--accent-raw), 0.40);
+    --border-focus: rgba(var(--accent-raw), 0.65);
+ 
+    /* Surfaces */
+    --overlay-bg:  rgba(245, 243, 239, 0.92);
     --card-shadow: rgba(0, 0, 0, 0.08);
+    --glass-bg:    rgba(226, 214, 190, 0.72);
 }
-
+ 
+/* ============================================================
+   ANTI-THEME-EXTENSION SHIELD
+   Blocks: Dark Reader, Firefox color inversion,
+           Windows High Contrast, forced-colors media
+   ============================================================ */
+ 
+/* Block OS/browser forced-colors (High Contrast mode) */
+@media (forced-colors: active) {
+    :root {
+        forced-color-adjust: none !important;
+        -webkit-forced-color-adjust: none !important;
+    }
+}
+ 
+/* Block prefers-color-scheme from leaking in — 
+   we manage the theme ourselves via data-theme */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        color-scheme: only light; /* stays in our dark palette, not OS dark */
+    }
+}
 *, *::before, *::after {
     margin: 0;
     padding: 0;
