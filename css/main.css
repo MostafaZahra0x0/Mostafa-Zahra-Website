@@ -519,7 +519,7 @@ button {
 .social-btn:hover {
     color: var(--accent);
     border-color: var(--accent);
-    transform: translateY(-4px);
+    transform: scale(1.5);
     box-shadow: 0 8px 20px var(--card-shadow);
 }
 
