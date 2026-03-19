@@ -25,7 +25,7 @@
 
 
 :root {
-    --bg-primary: #35240494;
+    --bg-primary: #352404;
     --bg-secondary: #1b1b1a;
     --bg-tertiary: #1c1917;
     --text-primary: #f0ebe3;
@@ -45,6 +45,22 @@
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
     --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #352404;
+    --bg-secondary: #1b1b1a;
+    --bg-tertiary: #1c1917;
+    --text-primary: #f0ebe3;
+    --text-secondary: #a69f94;
+    --text-muted: #6b6560;
+    --accent: #c9a962;
+    --accent-dim: #8a7642;
+    --accent-glow: rgba(201, 169, 98, 0.15);
+    --border: rgba(201, 169, 98, 0.12);
+    --border-hover: rgba(201, 169, 98, 0.3);
+    --overlay-bg: rgba(10, 9, 8, 0.9);
+    --card-shadow: rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="light"] {
