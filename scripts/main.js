@@ -4,7 +4,51 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initScrollReveal();
     initSmoothScroll();
+    protectDesignSystem();
 });
+
+function protectDesignSystem() {
+    const style = document.createElement('style');
+    style.id = 'darkreader-protection';
+    style.textContent = `
+        html, body, body * {
+            forced-color-adjust: none !important;
+            -webkit-force-color-adjust: none !important;
+            color-scheme: normal !important;
+        }
+        html, body {
+            filter: none !important;
+        }
+        svg[data-darkreader], #darkreader-shadow-document {
+            display: none !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    const removeInjectedStyles = () => {
+        document.querySelectorAll('#darkreader-ui, #darkreader-shadow-document, [data-darkreader-match]').forEach(el => el.remove());
+        document.querySelectorAll('svg[style*="position: fixed"]').forEach(el => {
+            if (el.innerHTML.includes('feColorMatrix') || el.innerHTML.includes('feGaussianBlur')) {
+                el.remove();
+            }
+        });
+    };
+    
+    const observer = new MutationObserver(removeInjectedStyles);
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+    
+    window.addEventListener('load', removeInjectedStyles);
+    
+    const darkReaderInterval = setInterval(() => {
+        const shadowHost = document.querySelector('#darkreader-shadow-document');
+        if (shadowHost) {
+            const shadowRoot = shadowHost.shadowRoot || shadowHost;
+            shadowRoot.innerHTML = '';
+        }
+    }, 100);
+    
+    setTimeout(() => clearInterval(darkReaderInterval), 3000);
+}
 
 function initThemeToggle() {
     const toggle = document.querySelector('.theme-toggle');
