@@ -67,11 +67,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    forced-color-adjust: none !important;
+    -webkit-force-color-adjust: none !important;
+    color-scheme: normal !important;
 }
 
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    forced-color-adjust: none !important;
+    -webkit-force-color-adjust: none !important;
+    color-scheme: normal !important;
+    filter: none !important;
 }
 
 body {
@@ -83,6 +90,11 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: background-color 0.5s var(--ease-out-quart), color 0.5s var(--ease-out-quart);
+    filter: none !important;
+}
+
+html {
+    filter: none !important;
 }
 
 body::before {
@@ -120,6 +132,11 @@ a {
 img {
     max-width: 100%;
     display: block;
+    filter: none !important;
+}
+
+svg {
+    filter: none !important;
 }
 
 button {
@@ -127,6 +144,25 @@ button {
     cursor: pointer;
     border: none;
     background: none;
+    forced-color-adjust: none !important;
+    -webkit-force-color-adjust: none !important;
+    color-scheme: normal !important;
+}
+
+a {
+    forced-color-adjust: none !important;
+    -webkit-force-color-adjust: none !important;
+}
+
+input, textarea, select {
+    forced-color-adjust: none !important;
+    -webkit-force-color-adjust: none !important;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--bg-primary);
+    forced-color-adjust: none !important;
 }
 
 .container {
