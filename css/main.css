@@ -26,75 +26,74 @@
    DESIGN TOKENS — MUSTAFA ZAHRA PORTFOLIO
    Theme-override resistant | Cross-environment consistent
    ============================================================ */
- 
+
 /* ── Shared tokens (never change between themes) ── */
 :root {
     /* Typography */
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'DM Sans', system-ui, sans-serif;
- 
+
     /* Animation curves */
-    --ease-out-expo:   cubic-bezier(0.16, 1, 0.3, 1);
-    --ease-out-quart:  cubic-bezier(0.25, 1, 0.5, 1);
-    --ease-elastic:    cubic-bezier(0.68, -0.55, 0.265, 1.55);
- 
+    --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-elastic:   cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
     /* Timing */
-    --transition-fast:   0.2s;
-    --transition-base:   0.4s;
-    --transition-slow:   0.8s;
- 
+    --transition-fast: 0.2s;
+    --transition-base: 0.4s;
+    --transition-slow: 0.8s;
+
     /* Spacing scale */
-    --space-xs:   0.25rem;
-    --space-sm:   0.5rem;
-    --space-md:   1rem;
-    --space-lg:   2rem;
-    --space-xl:   4rem;
- 
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+
     /* Radius scale */
-    --radius-sm:  8px;
-    --radius-md:  12px;
-    --radius-lg:  20px;
+    --radius-sm:   8px;
+    --radius-md:   12px;
+    --radius-lg:   20px;
     --radius-full: 9999px;
- 
+
     /* Accent (gold — same in both themes, only opacity differs) */
-    --accent-raw: 201, 169, 98;       /* r g b — reuse with rgba() */
+    --accent-raw: 201, 169, 98;
     --accent:     #c9a962;
     --accent-dim: #8a7642;
- 
-    /* Force browser to use our exact colors — defeats Dark Reader & friends */
+
+    /* Force browser to use our exact colors */
     color-scheme: only light;
     forced-color-adjust: none;
     -webkit-forced-color-adjust: none;
 }
- 
+
 /* ── Dark theme (default) ── */
 :root,
 :root[data-theme="dark"] {
     /* Backgrounds */
-    --bg-primary:   #5f5541a8;
+    --bg-primary:   #68583a94;
     --bg-secondary: #1b1b1a;
     --bg-tertiary:  #1c1917;
- 
+
     /* Text */
     --text-primary:   #f0ebe3;
     --text-secondary: #a69f94;
     --text-muted:     #6b6560;
- 
+
     /* Accent derivatives */
     --accent-glow:   rgba(var(--accent-raw), 0.15);
     --accent-subtle: rgba(var(--accent-raw), 0.08);
- 
+
     /* Borders */
     --border:       rgba(var(--accent-raw), 0.12);
     --border-hover: rgba(var(--accent-raw), 0.30);
     --border-focus: rgba(var(--accent-raw), 0.55);
- 
+
     /* Surfaces */
     --overlay-bg:  rgba(10, 9, 8, 0.90);
     --card-shadow: rgba(0, 0, 0, 0.30);
     --glass-bg:    rgba(28, 25, 23, 0.70);
 }
- 
 /* ── Light theme ── */
 :root[data-theme="light"] {
     /* Backgrounds */
