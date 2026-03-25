@@ -1,0 +1,199 @@
+/* Portfolio Section */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.selected-work-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.selected-work-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s var(--ease-out-expo);
+}
+
+.selected-work-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px var(--card-shadow);
+}
+
+.sw-card-top {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    padding: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.sw-card-image {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.sw-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-out-expo);
+    filter: grayscale(30%);
+}
+
+.selected-work-card:hover .sw-card-image img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+.sw-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5rem 0;
+}
+
+.sw-card-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.selected-work-card:hover .sw-card-title {
+    color: var(--accent);
+}
+
+.sw-card-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.sw-card-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    padding: 1rem 1.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.sw-card-label {
+    display: flex;
+    align-items: center;
+}
+
+.sw-card-label span {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0.5rem 1rem;
+    background: var(--bg-tertiary);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+}
+
+.selected-work-card:hover .sw-card-label span {
+    background: var(--accent-glow);
+    color: var(--accent);
+}
+
+.sw-card-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.sw-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    background: var(--bg-tertiary);
+    border: 1px solid transparent;
+    border-radius: 2rem;
+    transition: all 0.3s var(--ease-out-expo);
+}
+
+.sw-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+.portfolio-item {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.portfolio-item:nth-child(1) {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-out-expo), filter 0.5s ease;
+    filter: grayscale(40%);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.08);
+    filter: grayscale(0%);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--overlay-bg) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-overlay h4 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+    transform: translateY(10px);
+    transition: transform 0.4s var(--ease-out-expo);
+}
+
+.portfolio-overlay p {
+    font-size: 0.8rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transform: translateY(10px);
+    transition: transform 0.4s var(--ease-out-expo) 0.05s;
+}
+
+.portfolio-item:hover .portfolio-overlay h4,
+.portfolio-item:hover .portfolio-overlay p {
+    transform: translateY(0);
+}
