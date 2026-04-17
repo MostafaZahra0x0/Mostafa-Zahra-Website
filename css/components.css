@@ -167,7 +167,7 @@
 .btn-primary:hover {
     background: var(--accent);
     transform: translateY(-3px);
-    box-shadow: 0 20px 40px rgba(201, 169, 98, 0.25);
+    box-shadow: 0 20px 40px var(--accent-glow);
 }
 
 .btn-secondary {

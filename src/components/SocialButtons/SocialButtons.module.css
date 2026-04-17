@@ -1,0 +1,25 @@
+.socialButtons {
+    display: flex;
+    gap: 1rem;
+}
+
+.socialBtn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    transition: all 0.3s var(--ease-out-expo);
+}
+
+.socialBtn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: scale(1.15);
+    box-shadow: 0 8px 20px var(--card-shadow);
+}

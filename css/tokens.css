@@ -43,61 +43,69 @@
     -webkit-forced-color-adjust: none;
 }
 
-/* ── Dark theme (default) ── */
+/* ── Dark theme (default) — Enchanted Autumnal Night Forest ── */
 :root,
 :root[data-theme="dark"] {
-    /* Backgrounds */
-    --bg-primary:   #68583a94;
-    --bg-secondary: #1b1b1a;
-    --bg-tertiary:  #1c1917;
+    /* Backgrounds — deep woodland at twilight, misty and mysterious */
+    --bg-primary:   #1a2418;   /* deep pine shadow */
+    --bg-secondary: #243020;   /* moss understory */
+    --bg-tertiary:  #2d3d28;   /* forest floor */
 
-    /* Text */
-    --text-primary:   #f0ebe3;
-    --text-secondary: #a69f94;
-    --text-muted:     #6b6560;
+    /* Text — moonlight filtering through canopy */
+    --text-primary:   #e8dcc4;   /* aged parchment */
+    --text-secondary: #9ca88b;   /* sage lichen */
+    --text-muted:     #6b7560;   /* shadow moss */
+
+    /* Accent — lantern glow, golden amber (the beast's light) */
+    --accent-raw: 201, 169, 98;
+    --accent:     #c9a962;
+    --accent-dim: #a68b4b;
 
     /* Accent derivatives */
-    --accent-glow:   rgba(var(--accent-raw), 0.15);
-    --accent-subtle: rgba(var(--accent-raw), 0.08);
+    --accent-glow:   rgba(201, 169, 98, 0.15);
+    --accent-subtle: rgba(201, 169, 98, 0.07);
 
-    /* Borders */
-    --border:       rgba(var(--accent-raw), 0.12);
-    --border-hover: rgba(var(--accent-raw), 0.30);
-    --border-focus: rgba(var(--accent-raw), 0.55);
+    /* Borders — bark and branch silhouettes */
+    --border:       rgba(156, 168, 139, 0.10);
+    --border-hover: rgba(201, 169, 98, 0.30);
+    --border-focus: rgba(201, 169, 98, 0.55);
 
     /* Surfaces */
-    --overlay-bg:  rgba(10, 9, 8, 0.90);
-    --card-shadow: rgba(0, 0, 0, 0.30);
-    --glass-bg:    rgba(28, 25, 23, 0.70);
+    --overlay-bg:  rgba(26, 36, 24, 0.93);
+    --card-shadow: rgba(0, 0, 0, 0.45);
+    --glass-bg:    rgba(36, 48, 32, 0.80);
 }
-/* ── Light theme ── */
+
+/* ── Light theme — Golden Autumn Day in the Woods ── */
 :root[data-theme="light"] {
-    /* Backgrounds */
-    --bg-primary:   #ffedc8cb;          /* fixed: was invalid hex+alpha */
-    --bg-secondary: #96815f;
-    --bg-tertiary:  #ede4d0;
- 
-    /* Text */
-    --text-primary:   #1a1815;
-    --text-secondary: #5a554d;
-    --text-muted:     #6d6658;
- 
+    /* Backgrounds — dappled sunlight through autumn canopy */
+    --bg-primary:   #f7f1e3;   /* warm parchment sky */
+    --bg-secondary: #ede5ce;   /* fallen leaves */
+    --bg-tertiary:  #e2d4b7;   /* old oak bark */
+
+    /* Text — ink on aged paper */
+    --text-primary:   #2d2418;   /* dark walnut */
+    --text-secondary: #5c4a32;   /* aged leather */
+    --text-muted:     #8a7a62;   /* dried leaf */
+
+    /* Accent — russet & amber, like harvest pumpkins & turning maple */
+    --accent-raw: 176, 92, 40;
+    --accent:     #b05c28;
+    --accent-dim: #8f4a20;
+
     /* Accent derivatives */
-    --accent-raw: 166, 139, 75;       /* slightly warmer gold for light */
-    --accent:     #a68b4b;
-    --accent-dim: #8a7642;
-    --accent-glow:   rgba(var(--accent-raw), 0.12);
-    --accent-subtle: rgba(var(--accent-raw), 0.06);
- 
+    --accent-glow:   rgba(176, 92, 40, 0.12);
+    --accent-subtle: rgba(176, 92, 40, 0.06);
+
     /* Borders */
-    --border:       rgba(var(--accent-raw), 0.20);
-    --border-hover: rgba(var(--accent-raw), 0.40);
-    --border-focus: rgba(var(--accent-raw), 0.65);
- 
+    --border:       rgba(92, 74, 50, 0.15);
+    --border-hover: rgba(176, 92, 40, 0.35);
+    --border-focus: rgba(176, 92, 40, 0.55);
+
     /* Surfaces */
-    --overlay-bg:  rgba(245, 243, 239, 0.92);
-    --card-shadow: rgba(0, 0, 0, 0.08);
-    --glass-bg:    rgba(226, 214, 190, 0.72);
+    --overlay-bg:  rgba(247, 241, 227, 0.95);
+    --card-shadow: rgba(45, 36, 24, 0.10);
+    --glass-bg:    rgba(237, 229, 206, 0.88);
 }
  
 /* ============================================================

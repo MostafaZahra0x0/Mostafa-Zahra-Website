@@ -1,0 +1,106 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1.25rem 0;
+    background: linear-gradient(to bottom, var(--bg-primary), transparent);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: background 0.4s var(--ease-out-quart), border-color 0.4s var(--ease-out-quart);
+    border-radius: 0 0 20px 20px;
+}
+
+.navbar.scrolled {
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border);
+}
+
+.navInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navBrand {
+    width: 120px;
+}
+
+.logoImg {
+    width: 100%;
+    height: auto;
+}
+
+.navLinks {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.navLinks a {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+    position: relative;
+    padding: 0.25rem 0;
+    transition: color 0.3s ease;
+}
+
+.navLinks a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.4s var(--ease-out-expo);
+}
+
+.navLinks a:hover {
+    color: var(--text-primary);
+}
+
+.navLinks a:hover::after {
+    width: 100%;
+}
+
+.navToggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.navToggle span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--text-primary);
+    transition: all 0.3s var(--ease-out-quart);
+}
+
+.navToggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+
+.navToggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.navToggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+}
+
+@media (max-width: 768px) {
+    .navLinks {
+        display: none;
+    }
+
+    .navToggle {
+        display: flex;
+    }
+}
